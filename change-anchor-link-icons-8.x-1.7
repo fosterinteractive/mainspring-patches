@@ -1,39 +1,39 @@
-diff --git a/js/plugins/link/plugin.js b/js/plugins/link/plugin.js
-index fce564c41..86f681a6a 100755
---- a/js/plugins/link/plugin.js
-+++ b/js/plugins/link/plugin.js
+diff --git a/anchor_link/js/plugins/link/plugin.js b/anchor_link/js/plugins/link/plugin.js
+index fce564c..1dc2188 100755
+--- a/anchor_link/js/plugins/link/plugin.js
++++ b/anchor_link/js/plugins/link/plugin.js
 @@ -74,12 +74,14 @@
  				editor.ui.addButton( 'Link', {
  					label: editor.lang.link.toolbar,
  					command: 'link',
 -					toolbar: 'links,10'
 +					toolbar: 'links,10',
-+          icon: CKEDITOR.getUrl(this.path + '../../../../../../profiles/contrib/mainspring-profile/images/link-plus.png')
++					icon: CKEDITOR.getUrl(this.path + '../../../../../../profiles/contrib/mainspring-profile/images/link-plus.png')
  				} );
  				editor.ui.addButton( 'Unlink', {
  					label: editor.lang.link.unlink,
  					command: 'unlink',
 -					toolbar: 'links,20'
 +					toolbar: 'links,20',
-+          icon: CKEDITOR.getUrl(this.path + '../../../../../../profiles/contrib/mainspring-profile/images/link-minus.png')
++					icon: CKEDITOR.getUrl(this.path + '../../../../../../profiles/contrib/mainspring-profile/images/link-minus.png')
  				} );
  				editor.ui.addButton( 'Anchor', {
  					label: editor.lang.link.anchor.toolbar,
-diff --git a/src/Plugin/CKEditorPlugin/AnchorLink.php b/src/Plugin/CKEditorPlugin/AnchorLink.php
-index d2c245e47..eed0c711e 100755
---- a/src/Plugin/CKEditorPlugin/AnchorLink.php
-+++ b/src/Plugin/CKEditorPlugin/AnchorLink.php
-@@ -52,11 +52,11 @@ function getButtons() {
+diff --git a/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php b/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php
+index 16d5744..dde745f 100755
+--- a/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php
++++ b/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php
+@@ -53,11 +53,11 @@ class AnchorLink extends CKEditorPluginBase {
      return [
        'Link' => [
-         'label' => t('Link'),
+         'label' => $this->t('Link'),
 -        'image' => drupal_get_path('module', 'anchor_link') . '/js/plugins/link/icons/link.png',
 +        'image' => drupal_get_path('profile', 'mainspring') . '/images/link-plus.png',
        ],
        'Unlink' => [
-         'label' => t('Unlink'),
+         'label' => $this->t('Unlink'),
 -        'image' => drupal_get_path('module', 'anchor_link') . '/js/plugins/link/icons/unlink.png',
 +        'image' => drupal_get_path('profile', 'mainspring') . '/images/link-minus.png',
        ],
        'Anchor' => [
-         'label' => t('Anchor'),
+         'label' => $this->t('Anchor'),
